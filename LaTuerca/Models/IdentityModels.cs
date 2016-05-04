@@ -40,5 +40,9 @@ namespace LaTuerca.Models
 
         public System.Data.Entity.DbSet<LaTuerca.Models.Tipo> Tipoes { get; set; }
 
+        public System.Data.Entity.DbSet<LaTuerca.Models.Cliente> Clientes { get; set; }
+
+        public System.Data.Entity.DbSet<LaTuerca.Models.Proveedores> Proveedores { get; set; }
+
     }
 }

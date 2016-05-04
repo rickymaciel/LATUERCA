@@ -1,0 +1,138 @@
+﻿@model LaTuerca.Models.Cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RazonSocial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RazonSocial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ruc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ruc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LimiteCredito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LimiteCredito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FormaPago)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FormaPago)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioAsignado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioAsignado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaAlta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaAlta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaBaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaBaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
