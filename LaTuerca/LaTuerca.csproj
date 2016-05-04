@@ -166,6 +166,7 @@
     <Compile Include="Controllers\MarcasController.cs" />
     <Compile Include="Controllers\MenusController.cs" />
     <Compile Include="Controllers\ModelosController.cs" />
+    <Compile Include="Controllers\ProductoesController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\TiposController.cs" />
     <Compile Include="Global.asax.cs">
@@ -190,6 +191,10 @@
     <Compile Include="Migrations\201604292236550_Marcas.cs" />
     <Compile Include="Migrations\201604292236550_Marcas.Designer.cs">
       <DependentUpon>201604292236550_Marcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605041725128_Producto.cs" />
+    <Compile Include="Migrations\201605041725128_Producto.Designer.cs">
+      <DependentUpon>201605041725128_Producto.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201605041920091_Modelo.cs" />
     <Compile Include="Migrations\201605041920091_Modelo.Designer.cs">
@@ -216,6 +221,7 @@
     <Compile Include="Models\Marcas.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Modelo.cs" />
+    <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\Proveedores.cs" />
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -366,6 +372,11 @@
     <Content Include="Views\Proveedores\Details.cshtml" />
     <Content Include="Views\Proveedores\Edit.cshtml" />
     <Content Include="Views\Proveedores\Index.cshtml" />
+    <Content Include="Views\Productoes\Create.cshtml" />
+    <Content Include="Views\Productoes\Delete.cshtml" />
+    <Content Include="Views\Productoes\Details.cshtml" />
+    <Content Include="Views\Productoes\Edit.cshtml" />
+    <Content Include="Views\Productoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -420,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604292236550_Marcas.resx">
       <DependentUpon>201604292236550_Marcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605041725128_Producto.resx">
+      <DependentUpon>201605041725128_Producto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605041920091_Modelo.resx">
       <DependentUpon>201605041920091_Modelo.cs</DependentUpon>

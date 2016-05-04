@@ -44,5 +44,7 @@ namespace LaTuerca.Models
 
         public System.Data.Entity.DbSet<LaTuerca.Models.Proveedores> Proveedores { get; set; }
 
+        public System.Data.Entity.DbSet<LaTuerca.Models.Producto> Productoes { get; set; }
+
     }
 }
