@@ -36,5 +36,9 @@ namespace LaTuerca.Models
 
         public System.Data.Entity.DbSet<LaTuerca.Models.Marcas> Marcas { get; set; }
 
+        public System.Data.Entity.DbSet<LaTuerca.Models.Modelo> Modeloes { get; set; }
+
+        public System.Data.Entity.DbSet<LaTuerca.Models.Tipo> Tipoes { get; set; }
+
     }
 }
