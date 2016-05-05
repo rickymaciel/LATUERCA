@@ -15,8 +15,8 @@
                         <li class="user-header">
                             <img src="~/Content/img/logo.png" class="" alt="User Image">
                             <p>
-                                @Html.ActionLink(User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar", @class = "btn btn-default btn-xs", @data_toggle = "tooltip", @data_original_title = "Administrar" })
-                                <small>Member since Nov. 2012</small>
+                                @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Administrar", @class = "btn btn-default disabled", @data_toggle = "tooltip", @data_original_title = "Administrar" })
+                                <small></small>
                             </p>
                         </li>
                         <!-- Menu Footer-->

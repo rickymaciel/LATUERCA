@@ -1,28 +1,51 @@
 ﻿@model LaTuerca.Models.Menu
-
 @{
-    ViewBag.Title = "Crear";
+    ViewBag.Title = "Crear nuevo menú";
 }
-
-
 <section class="content">
-    <div class="row">
-        <!-- left column -->
+    <div class="row">        @if (!Html.ViewData.ModelState.IsValid)
+    {
+        <div class="col-lg-12" id="mensaje">
+            <div class="callout callout-success">
+                @Html.ValidationSummary()
+            </div>
+        </div>
+    }
+        <div class="col-lg-2">
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Submenú</h3>
+                    <div class="box-tools">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li>
+                            <a href="@Url.Action("Index", "Menus")">
+                                <i class="im-list"></i> Ver todo
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /. box -->
+        </div>
         <div class="col-lg-10">
-            <!-- general form elements -->
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <i class="im-menu"></i> @ViewBag.Title
                     </h3>
-                </div><!-- /.box-header -->
+                </div>
+                <!-- /.box-header -->
                 <!-- form start -->
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
                     <form role="form" class="form-horizontal">
                         <div class="box-body">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                             <div class="form-group col-lg-12">
                                 @Html.LabelFor(model => model.PadreId, htmlAttributes: new { @class = "control-label" })
                                 @Html.EditorFor(model => model.PadreId, new { htmlAttributes = new { @class = "form-control", placeholder = "Id" } })
@@ -51,32 +74,25 @@
                             <div class="checkbox col-lg-12">
                                 <input type="checkbox"> Activar
                             </div>
-                        </div><!-- /.box-body -->
+                        </div>
+                        <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-social btn-success pull-right">
-                                <i class="im-checkbox-checked"></i> Guardar
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-social btn-danger">
+                                    <i class="im-checkbox-checked"></i> Guardar
+                                </button>
+                            </div>
+                            <button type="reset" class="btn btn-social btn-default">
+                                <i class="im-remove"></i> Cancelar
                             </button>
                         </div>
                     </form>
                 }
-            </div><!-- /.box -->
-        </div>
-        <div class="col-lg-2">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Navegación</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                    <a href="@Url.Action("Index", "Menus")" class="btn btn-block btn-social btn-tumblr">
-                        <i class="im-menu"></i> Ir a la lista de menú
-                    </a>
-                </div>
             </div>
+            <!-- /.box -->
         </div>
     </div>
 </section>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }

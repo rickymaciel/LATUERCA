@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using LaTuerca.Models;
+using System.Web.SessionState;
 
 namespace LaTuerca.Controllers
 {
@@ -38,6 +39,7 @@ namespace LaTuerca.Controllers
         // GET: Menus/Create
         public ActionResult Create()
         {
+            ViewBag.Message = TempData["mensaje"];
             return View();
         }
 
@@ -52,7 +54,8 @@ namespace LaTuerca.Controllers
             {
                 db.Menus.Add(menu);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.AddModelError("", "El Menú fue creado con éxito.");
+                return View(menu);
             }
 
             return View(menu);
@@ -84,7 +87,8 @@ namespace LaTuerca.Controllers
             {
                 db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                ModelState.AddModelError("", "El Menú fue modificado.");
+                return View(menu);
             }
             return View(menu);
         }
@@ -112,6 +116,7 @@ namespace LaTuerca.Controllers
             Menu menu = db.Menus.Find(id);
             db.Menus.Remove(menu);
             db.SaveChanges();
+            ModelState.AddModelError("", "El Menú fue eliminado.");
             return RedirectToAction("Index");
         }
 
