@@ -3,7 +3,8 @@
     ViewBag.Title = "Crear nuevo menú";
 }
 <section class="content">
-    <div class="row">        @if (!Html.ViewData.ModelState.IsValid)
+    <div class="row">       
+         @if (!Html.ViewData.ModelState.IsValid)
     {
         <div class="col-lg-12" id="mensaje">
             <div class="callout callout-success">

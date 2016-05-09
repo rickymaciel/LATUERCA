@@ -168,6 +168,8 @@
     <Compile Include="Controllers\ModelosController.cs" />
     <Compile Include="Controllers\ProveedoresController.cs" />
     <Compile Include="Controllers\RepuestosController.cs" />
+    <Compile Include="Controllers\Sucursals1Controller.cs" />
+    <Compile Include="Controllers\SucursalsController.cs" />
     <Compile Include="Controllers\TiposController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -212,6 +214,10 @@
     <Compile Include="Migrations\201605050241415_Repuesto.Designer.cs">
       <DependentUpon>201605050241415_Repuesto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605091804275_Sucursal.cs" />
+    <Compile Include="Migrations\201605091804275_Sucursal.Designer.cs">
+      <DependentUpon>201605091804275_Sucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -223,6 +229,7 @@
     <Compile Include="Models\Modelo.cs" />
     <Compile Include="Models\Proveedores.cs" />
     <Compile Include="Models\Repuesto.cs" />
+    <Compile Include="Models\Sucursal.cs" />
     <Compile Include="Models\Tipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -372,11 +379,16 @@
     <Content Include="Views\Proveedores\Details.cshtml" />
     <Content Include="Views\Proveedores\Edit.cshtml" />
     <Content Include="Views\Proveedores\Index.cshtml" />
-    <Content Include="Views\Repuestos\Create.cshtml" />
-    <Content Include="Views\Repuestos\Delete.cshtml" />
-    <Content Include="Views\Repuestos\Details.cshtml" />
-    <Content Include="Views\Repuestos\Edit.cshtml" />
-    <Content Include="Views\Repuestos\Index.cshtml" />
+    <Content Include="Views\Proveedores\Repuestos\Create.cshtml" />
+    <Content Include="Views\Proveedores\Repuestos\Delete.cshtml" />
+    <Content Include="Views\Proveedores\Repuestos\Details.cshtml" />
+    <Content Include="Views\Proveedores\Repuestos\Edit.cshtml" />
+    <Content Include="Views\Proveedores\Repuestos\Index.cshtml" />
+    <Content Include="Views\Sucursals1\Create.cshtml" />
+    <Content Include="Views\Sucursals1\Delete.cshtml" />
+    <Content Include="Views\Sucursals1\Details.cshtml" />
+    <Content Include="Views\Sucursals1\Edit.cshtml" />
+    <Content Include="Views\Sucursals1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -446,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605050241415_Repuesto.resx">
       <DependentUpon>201605050241415_Repuesto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605091804275_Sucursal.resx">
+      <DependentUpon>201605091804275_Sucursal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
