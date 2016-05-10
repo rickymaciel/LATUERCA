@@ -46,7 +46,9 @@ namespace LaTuerca.Models
 
         public System.Data.Entity.DbSet<LaTuerca.Models.Repuesto> Repuestoes { get; set; }
 
-        public System.Data.Entity.DbSet<LaTuerca.Models.Sucursal> Sucursals { get; set; }
+        public System.Data.Entity.DbSet<LaTuerca.Models.Empleado> Empleadoes { get; set; }
+
+       
 
     }
 }
