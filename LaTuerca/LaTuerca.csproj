@@ -200,6 +200,8 @@
     <Content Include="Content\img\default-50x50.gif" />
     <Content Include="Content\img\icons.png" />
     <Content Include="Content\img\logo.png" />
+    <Content Include="Content\img\logohand.jpg" />
+    <Content Include="Content\img\tuercalogo.jpg" />
     <Content Include="Content\skins\skin-black-light.css" />
     <Content Include="Content\skins\skin-black-light.min.css" />
     <Content Include="Content\skins\skin-black.css" />
