@@ -108,6 +108,12 @@
                 increaseArea: '20%' // optional
             });
             $('#mensaje').delay(3200).fadeOut(300);
+
+            $("[data-toggle=tooltip]").tooltip();
+            $(".tip").tooltip({ placement: 'top' });
+            $(".tipR").tooltip({ placement: 'right'});
+            $(".tipB").tooltip({ placement: 'bottom'});
+            $(".tipL").tooltip({ placement: 'left' });
         });
     </script>
 </body>
