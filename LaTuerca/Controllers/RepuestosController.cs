@@ -41,8 +41,10 @@ namespace LaTuerca.Controllers
         {
             var repuesto = new Repuesto();
             var marcas = db.Marcas.ToList();
+            var modelos = db.Modeloes.ToList();
+            var categorias = db.Categorias.ToList();
             var proveedores = db.Proveedors.ToList();
-            var repuestoModelView = new RepuestoViewModel(repuesto, marcas, proveedores);
+            var repuestoModelView = new RepuestoViewModel(repuesto, marcas, modelos, categorias, proveedores);
 
             return View(repuestoModelView);
         }
@@ -52,14 +54,18 @@ namespace LaTuerca.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Repuesto repuesto, int Marca, int Proveedor)
+        public ActionResult Create(Repuesto repuesto, int Marca, int Modelo,int Categoria,int Proveedor)
         {
             if (ModelState.IsValid)
             {
                 var marca = db.Marcas.Single(m => m.Id == Marca);
                 var proveedor = db.Proveedors.Single(p => p.Id == Proveedor);
+                var modelo = db.Modeloes.Single(p => p.Id == Modelo);
+                var categoria = db.Categorias.Single(p => p.Id == Categoria);
                 repuesto.MarcaId = marca.Id;
+                repuesto.ModeloId = modelo.Id;
                 repuesto.ProveedorId = proveedor.Id;
+                repuesto.CategoriaId = categoria.Id;
                 db.Repuestoes.Add(repuesto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -77,8 +83,10 @@ namespace LaTuerca.Controllers
             }
             Repuesto repuesto = db.Repuestoes.Find(id);
             var marcas = db.Marcas.ToList();
+            var modelos = db.Modeloes.ToList();
             var proveedores = db.Proveedors.ToList();
-            var repuestoModelView = new RepuestoViewModel(repuesto, marcas, proveedores);
+            var categorias = db.Categorias.ToList();
+            var repuestoModelView = new RepuestoViewModel(repuesto, marcas, modelos,categorias, proveedores);
             if (repuesto == null)
             {
                 return HttpNotFound();
@@ -91,14 +99,18 @@ namespace LaTuerca.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Repuesto repuesto, int Marca, int Proveedor)
+        public ActionResult Edit(Repuesto repuesto, int Marca, int Proveedor, int Modelo,int Categoria)
         {
             if (ModelState.IsValid)
             {
                 var marca = db.Marcas.Single(m => m.Id == Marca);
+                var modelo = db.Modeloes.Single(m => m.Id == Modelo);
                 var proveedor = db.Proveedors.Single(p => p.Id == Proveedor);
+                var categoria = db.Categorias.Single(p => p.Id == Categoria);
                 repuesto.MarcaId = marca.Id;
+                repuesto.ModeloId = modelo.Id;
                 repuesto.ProveedorId = proveedor.Id;
+                repuesto.CategoriaId = categoria.Id;
                 db.Entry(repuesto).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

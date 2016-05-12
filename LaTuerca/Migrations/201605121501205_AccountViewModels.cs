@@ -8,6 +8,16 @@ namespace LaTuerca.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.Categorias",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nombre = c.String(nullable: false, maxLength: 60),
+                        Estado = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Clientes",
                 c => new
                     {
@@ -37,12 +47,41 @@ namespace LaTuerca.Migrations
                         Nombre = c.String(nullable: false, maxLength: 60),
                         ProveedorId = c.Int(nullable: false),
                         MarcaId = c.Int(nullable: false),
+                        ModeloId = c.Int(nullable: false),
+                        CategoriaId = c.Int(nullable: false),
+                        Stock = c.Int(nullable: false),
+                        StockMinimo = c.Int(nullable: false),
+                        StockMaximo = c.Int(nullable: false),
+                        PrecioCosto = c.Single(nullable: false),
+                        PrecioVenta1 = c.Single(nullable: false),
+                        PrecioVenta2 = c.Single(nullable: false),
+                        PrecioVenta3 = c.Single(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categorias", t => t.CategoriaId, cascadeDelete: true)
                 .ForeignKey("dbo.Marcas", t => t.MarcaId, cascadeDelete: true)
+                .ForeignKey("dbo.Modeloes", t => t.ModeloId, cascadeDelete: true)
                 .ForeignKey("dbo.Proveedors", t => t.ProveedorId, cascadeDelete: true)
                 .Index(t => t.ProveedorId)
-                .Index(t => t.MarcaId);
+                .Index(t => t.MarcaId)
+                .Index(t => t.ModeloId)
+                .Index(t => t.CategoriaId);
+            
+            CreateTable(
+                "dbo.Modeloes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        NombreModelo = c.String(nullable: false, maxLength: 60),
+                        Fabricante = c.String(nullable: false),
+                        Anho = c.Int(nullable: false),
+                        Tipo = c.Int(nullable: false),
+                        Cilindros = c.String(nullable: false),
+                        Potencia = c.String(nullable: false),
+                        Tipo_Cambio = c.String(nullable: false),
+                        Estado = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.Proveedors",
@@ -54,6 +93,20 @@ namespace LaTuerca.Migrations
                         Direccion = c.String(nullable: false),
                         Telefono = c.String(nullable: false),
                         Celular = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.Menus",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        ParentId = c.Int(nullable: false),
+                        Name = c.String(nullable: false),
+                        Description = c.String(nullable: false),
+                        Action = c.String(),
+                        Controller = c.String(),
+                        Active = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -134,13 +187,17 @@ namespace LaTuerca.Migrations
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Repuestoes", "ProveedorId", "dbo.Proveedors");
+            DropForeignKey("dbo.Repuestoes", "ModeloId", "dbo.Modeloes");
             DropForeignKey("dbo.Repuestoes", "MarcaId", "dbo.Marcas");
+            DropForeignKey("dbo.Repuestoes", "CategoriaId", "dbo.Categorias");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Repuestoes", new[] { "CategoriaId" });
+            DropIndex("dbo.Repuestoes", new[] { "ModeloId" });
             DropIndex("dbo.Repuestoes", new[] { "MarcaId" });
             DropIndex("dbo.Repuestoes", new[] { "ProveedorId" });
             DropTable("dbo.AspNetUserLogins");
@@ -148,10 +205,13 @@ namespace LaTuerca.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Menus");
             DropTable("dbo.Proveedors");
+            DropTable("dbo.Modeloes");
             DropTable("dbo.Repuestoes");
             DropTable("dbo.Marcas");
             DropTable("dbo.Clientes");
+            DropTable("dbo.Categorias");
         }
     }
 }

@@ -20,12 +20,29 @@ namespace LaTuerca.Models
 
         public int ProveedorId { get; set; }
         public int MarcaId { get; set; }
+        public int ModeloId { get; set; }
+        public int CategoriaId { get; set; }
 
         [ForeignKey("ProveedorId")]
         public virtual Proveedor Proveedor { get; set; }
 
         [ForeignKey("MarcaId")]
         public virtual Marca Marca { get; set; }
+
+        [ForeignKey("ModeloId")]
+        public virtual Modelo Modelo { get; set; }
+
+        [ForeignKey("CategoriaId")]
+        public virtual Categoria Categoria { get; set; }
+
+
+        public int Stock { get; set; }
+        public int StockMinimo { get; set; }
+        public int StockMaximo { get; set; }
+        public float PrecioCosto { get; set; }
+        public float PrecioVenta1 { get; set; }
+        public float PrecioVenta2 { get; set; }
+        public float PrecioVenta3 { get; set; }
 
     }
 }

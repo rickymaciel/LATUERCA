@@ -13,7 +13,7 @@ namespace LaTuerca.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201605120231362_AccountViewModels"; }
+            get { return "201605121501205_AccountViewModels"; }
         }
         
         string IMigrationMetadata.Source

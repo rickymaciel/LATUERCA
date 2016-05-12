@@ -33,6 +33,26 @@
                 @Html.ValidationMessageFor(model => model.Marcas, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Categoria", new SelectList(Model.Categorias, "Id", "Nombre"), new { @class = "form-control" })
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearCategoria">
+                    +
+                </button>
+                @Html.ValidationMessageFor(model => model.Categorias, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Modelo", new SelectList(Model.Modelos, "Id", "NombreModelo"), new { @class = "form-control" })
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearModelo">
+                    +
+                </button>
+                @Html.ValidationMessageFor(model => model.Modelos, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Repuesto.Proveedor, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -43,6 +63,59 @@
                     +
                 </button>
                 @Html.ValidationMessageFor(model => model.Proveedores, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.Stock, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.Stock, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.StockMinimo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.StockMinimo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.StockMinimo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.StockMaximo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.StockMaximo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.StockMaximo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.PrecioCosto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.PrecioCosto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.PrecioCosto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.PrecioVenta1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.PrecioVenta1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.PrecioVenta1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.PrecioVenta2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.PrecioVenta2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.PrecioVenta2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Repuesto.PrecioVenta3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Repuesto.PrecioVenta3, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Repuesto.PrecioVenta3, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,5 +131,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@Html.Partial("_create_proveedor", Model.Proveedor)
 @Html.Partial("_create_marca", Model.Marca)
+@Html.Partial("_create_modelo", Model.Modelo)
+@Html.Partial("_create_categoria", Model.Categoria)
+@Html.Partial("_create_proveedor", Model.Proveedor)

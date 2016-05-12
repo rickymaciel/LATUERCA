@@ -39,5 +39,9 @@ namespace LaTuerca.Models
         public System.Data.Entity.DbSet<LaTuerca.Models.Repuesto> Repuestoes { get; set; }
 
         public System.Data.Entity.DbSet<LaTuerca.Models.Menu> Menus { get; set; }
+
+        public System.Data.Entity.DbSet<LaTuerca.Models.Modelo> Modeloes { get; set; }
+
+        public System.Data.Entity.DbSet<LaTuerca.Models.Categoria> Categorias { get; set; }
     }
 }
